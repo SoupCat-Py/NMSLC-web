@@ -1,0 +1,60 @@
+@font-face {
+    font-family: nms;
+    src: url(fonts/geonms-font.ttf);
+}
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ENTIRE DOCUMENT */
+body {
+    background: #232323;
+}
+
+/* HEADER BAR */
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    gap: 1rem;
+    padding: 1rem;
+
+    background: #990000;
+    box-shadow: 0 0 5px 1px #000000;
+}
+header a {
+    text-decoration: none;
+    cursor: pointer;
+}
+header p {
+    color: black;
+}
+header p:hover {
+    color: red;
+}
+
+
+/* MAIN */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    padding: 1rem;
+}
+h1 {
+    color: #BB0000;
+    font-family: nms, sans-serif;
+    font-size: 2.5rem;
+}
