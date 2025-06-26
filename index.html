@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
     <header>
         <a href="https://github.com/soupcat-py/nmslc-web" target="_blank">
@@ -28,13 +30,29 @@
         <section class="title">
             <h1>&lt; NMS Layline Calculator /&gt;</h1>
         </section>
-        
+
         <section class="main-content">
             <section class="calc">
-
+                <!-- user inputs -->
+                <div class="coords-1">
+                    <p>First Coordinates</p>
+                    <input placeholder="lat">
+                    <input placeholder="long">
+                </div>
+                <div class="coords-2">
+                    <p>Second Coordinates</p>
+                    <input placeholder="lat">
+                    <input placeholder="long">
+                </div>
+                <div class="distance">
+                    <p>How Far You Travelled</p>
+                    <input placeholder="distance">
+                </div>
             </section>
             <section class="results">
-
+                <!-- Resulting laylines will show here -->
+                <!-- Gonna have to do some JS stuff to actually get this to work -->
+                 <p>Laylines at these longitudes:</p>
             </section>
         </section>
     </main>

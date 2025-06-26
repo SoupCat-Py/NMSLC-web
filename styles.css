@@ -13,8 +13,30 @@
 }
 
 /* ENTIRE DOCUMENT */
+:root {
+    --bg-dark:  hsl(0,0%,5%);
+    --bg-mid:   hsl(0,0%,10%);
+    --bg-light: hsl(0,0%,15%);
+
+    --text-norm: hsl(0,0%,95%);
+    --text-dark: hsl(0,0%,70%);
+
+    --danger:  hsl(8 79% 66%);
+    --warning: hsl(54 100% 31%);
+    --success: hsl(156 68% 43%);
+    --info:    hsl(217 94% 69%);
+
+    --primary: hsl(0, 88%, 39%);
+
+    --highlight: hsl(183 100% 10%);
+    --border: hsl(184 100% 16%);
+    --border-muted: hsl(185 100% 10%);
+}
 body {
-    background: #232323;
+    background: var(--bg-dark);
+}
+p {
+    color: var(--text-norm);
 }
 
 /* HEADER BAR */
@@ -57,4 +79,11 @@ h1 {
     color: #BB0000;
     font-family: nms, sans-serif;
     font-size: 2.5rem;
+}
+.main-content {
+    display: flex;
+    gap: 1.8rem;
+
+    align-items: top;
+    justify-content: center;
 }
