@@ -29,8 +29,8 @@
     --primary: hsl(0, 88%, 39%);
 
     --highlight: hsl(183 100% 10%);
-    --border: hsl(184 100% 16%);
-    --border-muted: hsl(185 100% 10%);
+    --border: hsl(184, 100%, 25%);
+    --border-muted: hsl(185, 100%, 17%);
 }
 body {
     background: var(--bg-dark);
@@ -76,6 +76,8 @@ main {
     padding: 1rem;
 }
 h1 {
+    padding: 1rem;
+
     color: #BB0000;
     font-family: nms, sans-serif;
     font-size: 2.5rem;
@@ -83,7 +85,76 @@ h1 {
 .main-content {
     display: flex;
     gap: 1.8rem;
-
+    padding: 3rem;
     align-items: top;
     justify-content: center;
+
+    background: var(--bg-mid);
+    border: solid;
+    border-color: var(--border-muted);
+    border-radius: 50px;
+}
+.calc {
+    display: flex;
+    gap: 1rem;
+}
+.input-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    font-size: 1.2rem;
+}
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.input-fields div{
+    display: flex;
+    gap: 10px;
+}
+.input-fields input {
+    height: 30px;
+    width: 100px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+#dist {
+    width: 210px;
+}
+.calc-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.calc-buttons button {
+    display: flex;
+    flex-direction: row;
+    padding: 0.8rem;
+
+    border: solid;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+#locate-button {
+    gap: 0.5rem;
+    align-items: center;
+
+    background: var(--primary);
+    border-color: var(--border);
+}
+#locate-button:hover {
+    border-color: var(--border-muted);
+}
+#locate-button i {
+    color: var(--text-norm);
+}
+#clear-button {
+    background: var(--bg-light);
+    border-color: var(--danger);
+}
+#clear-button:hover {
+    border-color: var(--warning);
 }

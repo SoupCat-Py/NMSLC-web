@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 
@@ -28,26 +31,37 @@
     </header>
     <main>
         <section class="title">
-            <h1>&lt; NMS Layline Calculator /&gt;</h1>
+            <h1>&lt; NMS Leyline Calculator /&gt;</h1>
         </section>
 
         <section class="main-content">
             <section class="calc">
                 <!-- user inputs -->
-                <div class="coords-1">
-                    <p>First Coordinates</p>
-                    <input placeholder="lat">
-                    <input placeholder="long">
-                </div>
-                <div class="coords-2">
-                    <p>Second Coordinates</p>
-                    <input placeholder="lat">
-                    <input placeholder="long">
-                </div>
-                <div class="distance">
-                    <p>How Far You Travelled</p>
-                    <input placeholder="distance">
-                </div>
+                <section class="input-labels">
+                    <p>First Coordinates:</p>
+                    <p>Second Coordinates:</p>
+                    <p>How Far You Travelled:</p>
+                </section>
+                <section class="input-fields">
+                    <div class="coords-1">
+                        <input id="lat1" placeholder="lat">
+                        <input id="long1" placeholder="long">
+                    </div>
+                    <div class="coords-2">
+                        <input id="lat2" placeholder="lat">
+                        <input id="long2" placeholder="long">
+                    </div>
+                    <div class="distance">
+                        <input id="dist" placeholder="distance (u)">
+                    </div>
+                    <div class="calc-buttons">
+                        <button id="clear-button"><p>Clear</p></button>
+                        <button id="locate-button">
+                            <p>Locate</p>
+                            <i class="fa-solid fa-caret-right"></i>
+                        </button>
+                    </div>
+                </section>
             </section>
             <section class="results">
                 <!-- Resulting laylines will show here -->
