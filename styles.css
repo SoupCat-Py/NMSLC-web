@@ -102,7 +102,7 @@ h1 {
 .input-labels {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 47px;
 
     font-size: 1.2rem;
 }
@@ -116,10 +116,23 @@ h1 {
     gap: 10px;
 }
 .input-fields input {
-    height: 30px;
+    height: 40px;
     width: 100px;
+
     font-size: 1.3rem;
+    color: var(--text-norm);
     text-align: center;
+
+    background-color: var(--bg-light);
+    border: solid;
+    border-color: var(--border);
+    border-radius: 10px;
+}
+.input-fields input:hover {
+    box-shadow: 0px 0px 3px white;
+}
+.input-fields input:focus-within {
+    box-shadow: 0px 0px 8px white;
 }
 #dist {
     width: 210px;
@@ -139,6 +152,10 @@ h1 {
     border-radius: 1rem;
     font-size: 1rem;
 }
+.calc-buttons button:hover {
+    box-shadow: 0px 0px 10px var(--primary);
+    cursor: pointer;
+}
 #locate-button {
     gap: 0.5rem;
     align-items: center;
@@ -154,8 +171,8 @@ h1 {
 }
 #clear-button {
     background: var(--bg-light);
-    border-color: var(--danger);
+    border-color: var(--primary);
 }
 #clear-button:hover {
-    border-color: var(--warning);
+    border-color: var(--danger);
 }
