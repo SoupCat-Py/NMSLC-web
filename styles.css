@@ -4,7 +4,7 @@
 }
 
 * {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     color: black;
 
     box-sizing: border-box;
@@ -18,7 +18,7 @@
     --bg-mid:   hsl(0,0%,10%);
     --bg-light: hsl(0,0%,15%);
 
-    --text-norm: hsl(0,0%,95%);
+    --text-norm: hsl(0,0%,80%);
     --text-dark: hsl(0,0%,70%);
 
     --danger:  hsl(8 79% 66%);
@@ -47,7 +47,7 @@ header {
     align-items: center;
     justify-content: left;
 
-    gap: 1rem;
+    gap: 3rem;
     padding: 1rem;
 
     background: #990000;
@@ -59,6 +59,7 @@ header a {
 }
 header p {
     color: black;
+    font-family: 'JetBrains Mono', sans-serif;
 }
 header p:hover {
     color: red;
@@ -101,7 +102,7 @@ h1 {
 .input-labels {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 35px;
 
     font-size: 1.2rem;
 }
@@ -143,10 +144,10 @@ h1 {
     align-items: center;
 
     background: var(--primary);
-    border-color: var(--border);
+    border-color: var(--border-muted);
 }
 #locate-button:hover {
-    border-color: var(--border-muted);
+    border-color: var(--border);
 }
 #locate-button i {
     color: var(--text-norm);
