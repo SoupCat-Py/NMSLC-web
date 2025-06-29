@@ -1,12 +1,13 @@
-@font-face {
+@font-face {                  
     font-family: nms;
     src: url(fonts/geonms-font.ttf);
 }
 
 * {
     font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1rem;
     color: black;
-
+ 
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -104,7 +105,6 @@ h1 {
     flex-direction: column;
     gap: 47px;
 
-    font-size: 1.2rem;
 }
 .input-fields {
     display: flex;
@@ -119,7 +119,6 @@ h1 {
     height: 40px;
     width: 100px;
 
-    font-size: 1.3rem;
     color: var(--text-norm);
     text-align: center;
 
@@ -150,7 +149,6 @@ h1 {
 
     border: solid;
     border-radius: 1rem;
-    font-size: 1rem;
 }
 .calc-buttons button:hover {
     box-shadow: 0px 0px 10px var(--primary);
