@@ -2,9 +2,13 @@
     font-family: nms;
     src: url(fonts/geonms-font.ttf);
 }
+@font-face {
+    font-family: Futura;
+    src: url(fonts/Futura\ Medium.ttf);
+}
 
 * {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: Futura, sans-serif;
     font-size: 1.1rem;
     color: black;
  
@@ -16,7 +20,7 @@
 /* ENTIRE DOCUMENT */
 :root {
     --bg-dark:  hsl(0,0%,5%);
-    --bg-mid:   hsl(0,0%,10%);
+    --bg-mid:   hsl(0,0%,8%);
     --bg-light: hsl(0,0%,15%);
 
     --text-norm: hsl(0,0%,80%);
@@ -98,79 +102,58 @@ h1 {
 }
 .calc {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
-.input-labels {
+.calc-row {
     display: flex;
-    flex-direction: column;
-    gap: 47px;
-
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    gap: 2rem;
 }
-.input-fields {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.input-fields div{
-    display: flex;
-    gap: 10px;
-}
-.input-fields input {
-    height: 40px;
+.inputs input {
     width: 100px;
+    height: 40px;
 
-    color: var(--text-norm);
     text-align: center;
 
     background-color: var(--bg-light);
+    color: var(--text-norm);
     border: solid;
     border-color: var(--border);
     border-radius: 10px;
 }
-.input-fields input:hover {
+.inputs input:hover {
     box-shadow: 0px 0px 3px white;
 }
-.input-fields input:focus-within {
+.inputs input:focus-within {
     box-shadow: 0px 0px 8px white;
 }
 #dist {
-    width: 210px;
+    width: 205px;
 }
-.calc-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-.calc-buttons button {
-    display: flex;
-    flex-direction: row;
+.buttons button {
     padding: 0.8rem;
 
     border: solid;
-    border-radius: 1rem;
+    border-radius: 15px;
 }
-.calc-buttons button:hover {
+.buttons button:hover {
     box-shadow: 0px 0px 10px var(--primary);
-    cursor: pointer;
+}
+#clear-button {
+    background-color: var(--bg-light);
+    border-color: var(--danger);
 }
 #locate-button {
+    display: flex;
     gap: 0.5rem;
     align-items: center;
 
-    background: var(--primary);
+    background-color: var(--primary);
     border-color: var(--border-muted);
-}
-#locate-button:hover {
-    border-color: var(--border);
 }
 #locate-button i {
     color: var(--text-norm);
-}
-#clear-button {
-    background: var(--bg-light);
-    border-color: var(--primary);
-}
-#clear-button:hover {
-    border-color: var(--danger);
 }
