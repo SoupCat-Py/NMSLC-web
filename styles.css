@@ -24,7 +24,7 @@
     --bg-light: hsl(0,0%,15%);
 
     --text-norm: hsl(0,0%,80%);
-    --text-dark: hsl(0,0%,70%);
+    --text-dark: hsl(0,0%,60%);
 
     --danger:  hsl(8 79% 66%);
     --warning: hsl(54 100% 31%);
@@ -100,6 +100,7 @@ h1 {
     border-color: var(--border-muted);
     border-radius: 50px;
 }
+/* calculator part */
 .calc {
     display: flex;
     flex-direction: column;
@@ -156,4 +157,20 @@ h1 {
 }
 #locate-button i {
     color: var(--text-norm);
+}
+/* results part */
+.results {
+    justify-items: center;
+
+    border-left: dashed;
+    border-right: dashed;
+    border-width: 2px;
+    border-color: var(--border-muted);
+    border-radius: 10px;
+}
+.results-label {
+    padding: 1rem;
+}
+.line {
+    color: var(--text-dark);
 }
