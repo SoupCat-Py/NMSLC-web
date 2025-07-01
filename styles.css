@@ -91,6 +91,7 @@ h1 {
     font-size: 2.5rem;
 }
 .main-content {
+    box-shadow: 0px 0px 15px var(--border);
     display: flex;
     gap: 1.8rem;
     padding: 3rem;
@@ -189,13 +190,8 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     width: 90%;
-
-    /* background: var(--bg-mid);
-    border: solid;
-    border-color: var(--border-muted);
-    border-radius: 50px; */
 }
 h2 {
     font-family: nms, sans-serif;
@@ -219,6 +215,7 @@ h4 {
     border: solid;
     border-color: var(--border-muted);
     border-radius: 30px;
+    box-shadow: 0px 0px 15px var(--border);
 }
 .info-div {
     /* to make them evenly sized */
