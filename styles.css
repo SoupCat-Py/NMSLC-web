@@ -176,8 +176,36 @@ h1 {
     border-color: var(--border-muted);
     border-radius: 10px;
 }
-.results-label {
+.results-placeholder {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
+    gap: 0.5rem;
+    align-items: center;
+}
+.placeholder-icon {
+    font-size: 4rem;
+    aspect-ratio: 1/1;
+    color: var(--bg-light);
+}
+.placeholder-text {
+    color: var(--bg-light);
+}
+.results-shown {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.results-label {
+    padding: 0.5rem;
+}
+.results-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
 }
 .line {
     display: none;
