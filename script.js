@@ -100,8 +100,8 @@ function validate_paste(box) {
 }
 // apply the function to each box
 boxes.forEach(box => {
-    box.oninput = function() {validate_input(box)}
-    box.onpaste = function() {setTimeout(() => validate_paste(box),0)}
+    box.oninput = function() { validate_input(box); }
+    box.onpaste = function() { setTimeout(() => validate_paste(box),0); }
 })
 
 // clear button func

@@ -93,6 +93,7 @@ h1 {
 .main-content {
     box-shadow: 0px 0px 15px var(--border);
     display: flex;
+    flex-direction: column; /* MOBILE MODE */
     gap: 1.8rem;
     padding: 3rem;
     align-items: top;
@@ -235,6 +236,7 @@ h4 {
 .info-top,
 .info-bottom {
     display: flex;
+    flex-direction: column;  /* MOBILE MODE */
     align-items: stretch;
     justify-content: center;
     padding: 2rem;
@@ -260,7 +262,8 @@ h4 {
 .info-div-bottom-left {
     flex: 2 1 0;
 
-    border-right: dashed;
+    border-right: none;  /* MOBILE MODE */
+    border-bottom: dashed;  /* MOBILE MODE */
     border-color: var(--border-muted);
 }
 .info-div-bottom-right {
@@ -270,6 +273,7 @@ h4 {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    padding: 1rem;
 }
 .info-body p,
 .info-body li,
@@ -312,4 +316,22 @@ footer i {
 }
 #footer-link:hover {
     color: var(--info);
+}
+
+
+
+/* DESKTOP MODE */
+/* duplicates of these earlier in the script are for MOBILE mode */
+@media (min-width: 850px) {
+    .main-content {
+        flex-direction: row;
+    }
+    .info-bottom {
+        flex-direction: row;
+    }
+    .info-div-bottom-left {
+        border-right: dashed;
+        border-bottom: none;
+        border-color: var(--border-muted);
+    }
 }
