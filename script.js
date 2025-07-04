@@ -102,6 +102,7 @@ function validate_paste(box) {
 boxes.forEach(box => {
     box.oninput = function() { validate_input(box); }
     box.onpaste = function() { setTimeout(() => validate_paste(box),0); }
+    box.onblur  = function() { validate_input(box); }
 })
 
 // clear button func
