@@ -81,6 +81,7 @@ main {
     gap: 2rem;
 }
 .title {
+    text-align: center;
     padding: 1rem;
 }
 h1 {
@@ -95,7 +96,8 @@ h1 {
     display: flex;
     flex-direction: column; /* MOBILE MODE */
     gap: 1.8rem;
-    padding: 3rem;
+    padding: 1rem; /* MOBILE MODE */
+    padding-bottom: 2rem;  /* MOBILE MODE */
     align-items: top;
     justify-content: center;
 
@@ -142,33 +144,30 @@ h1 {
 .buttons {
     display: flex;
     flex-direction: row;
-    gap: 15px;
 }
 .buttons button {
     padding: 0.8rem;
-
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 110px;
+    
     border: solid;
     border-radius: 15px;
 }
 .buttons button:hover {
     box-shadow: 0px 0px 10px var(--primary);
 }
+.buttons button i {
+    color: var(--text-norm);
+}
 #clear-button {
-    width: 80px;
     background-color: var(--bg-light);
     border-color: var(--danger);
 }
 #locate-button {
-    width: 110px;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-
     background-color: var(--primary);
     border-color: var(--border-muted);
-}
-#locate-button i {
-    color: var(--text-norm);
 }
 /* results part */
 .results {
@@ -314,6 +313,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 2rem;
     gap: 1rem;
 }
@@ -331,9 +331,10 @@ footer i {
 
 /* DESKTOP MODE */
 /* duplicates of these earlier in the script are for MOBILE mode */
-@media (min-width: 850px) {
+@media (min-width: 820px) {
     .main-content {
         flex-direction: row;
+        padding: 3rem;
     }
 
     .calc-row {
