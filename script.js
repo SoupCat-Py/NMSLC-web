@@ -5,16 +5,23 @@
 // it raises errors when i try to use an undeclared variable
 "use strict"
 
-// define entries
+// define elements
 const lat1_box =  document.getElementById('lat1');
 const long1_box = document.getElementById('long1');
 const lat2_box =  document.getElementById('lat2');
 const long2_box = document.getElementById('long2');
 const dist_box =  document.getElementById('dist');
+const locate =    document.getElementById('locate-button');
+const clear =     document.getElementById('clear-button');
 
 // declare other vars
 const angles = [-90, 0, 90, 180];
 const boxes = [lat1_box, long1_box, lat2_box, long2_box, dist_box];
+const primary =   window.getComputedStyle(document.body).getPropertyValue('--primary');
+const danger =    window.getComputedStyle(document.body).getPropertyValue('--danger');
+const success =   window.getComputedStyle(document.body).getPropertyValue('--success');
+const text_norm = window.getComputedStyle(document.body).getPropertyValue('--text-norm')
+const text_dark = window.getComputedStyle(document.body).getPropertyValue('--text-dark')
 let alert_yn = false;
 
 
@@ -52,16 +59,25 @@ function calculate_laylines(lat1,long1,lat2,long2,dist) {
 
     // show the leylines to the user
     for (let i = 0; i < list_result.length; i++) {
+        // get each line element
         let leyline_display = document.getElementById(`l${String(i)}`);
+        // show the lines
         leyline_display.style.display = 'block';
         leyline_display.innerHTML = list_result[i];
         leyline_display.style.display = 'block';
+        // set copy funcs
+        leyline_display.onclick = function() {
+            navigator.clipboard.writeText(list_result[i]);
+            leyline_display.classList.add('copied');
+            setTimeout(() => {
+                leyline_display.classList.remove('copied');
+            }, 1000);
+        }
     }
 }
 
 // locate button func
-document.getElementById('locate-button').onclick = function(){
-
+function send_inputs() {
     // get all the values
     let lat1 =  Number(lat1_box.value);
     let long1 = Number(long1_box.value);
@@ -79,8 +95,21 @@ document.getElementById('locate-button').onclick = function(){
             calculate_laylines(lat1,long1,lat2,long2,dist);
         }
     })
-    if (alert_yn) {alert('Please make sure you filled out all the boxes!');}
+    // animations
+    locate.style.animation = 'none';
+    void locate.offsetWidth; //force reflow (???)
+    if (alert_yn) {
+        locate.style.animation = 'nuh-uh 0.1s';
+        locate.style.animationIterationCount = 3;
+    }
+    else {
+        locate.style.animation = 'click 0.2s';
+        locate.style.animationIterationCount = 1;
+    }
 }
+// apply to button
+locate.onclick = () => {send_inputs()}
+
 
 // input validation
 // actual functions here
@@ -100,16 +129,35 @@ function validate_paste(box) {
 }
 // apply the function to each box
 boxes.forEach(box => {
-    box.oninput = function() { validate_input(box); }
-    box.onpaste = function() { setTimeout(() => validate_paste(box),0); }
-    box.onblur  = function() { validate_input(box); }
+    box.oninput = () => { validate_input(box); }
+    box.onpaste = () => { setTimeout(() => validate_paste(box),0); }
+    box.onblur  = () => { validate_input(box); }
 })
 
+
 // clear button func
-document.getElementById('clear-button').onclick = function() {
+clear.onclick = () => {
+    // change button color
+    clear.style.color = danger;
+    setTimeout(() => {
+        clear.style.color = text_norm;
+    }, 1000);
+
+    // clear all inputs
     lat1_box.value  = '';
     long1_box.value = '';
     lat2_box.value  = '';
     long2_box.value = '';
     dist_box.value  = '';
 }
+
+// go to next input when you press enter
+boxes.forEach((box, idx) => {
+    box.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (idx < boxes.length - 1) { boxes[idx + 1].focus(); }
+            else { send_inputs() }
+        }
+    });
+});

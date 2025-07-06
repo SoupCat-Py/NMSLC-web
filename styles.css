@@ -29,7 +29,7 @@
 
     --danger:  hsl(8 79% 66%);
     --warning: hsl(54 100% 31%);
-    --success: hsl(156 68% 43%);
+    --success: hsl(130, 87%, 44%);
     --info:    hsl(217 60% 69%);
 
     --primary: hsl(0, 88%, 39%);
@@ -52,12 +52,15 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: left;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 
     gap: 3rem;
     padding: 1rem;
 
     background: #990000;
-    box-shadow: 0 0 5px 1px #000000;
+    box-shadow: 0 0 5px 5px #000000;
 }
 header a {
     text-decoration: none;
@@ -92,20 +95,47 @@ h1 {
     font-size: 2.5rem;
 }
 .main-content {
-    box-shadow: 0px 0px 15px var(--border);
     display: flex;
     flex-direction: column; /* MOBILE MODE */
     gap: 1.8rem;
-    padding: 1rem; /* MOBILE MODE */
+    padding: 1.5rem; /* MOBILE MODE */
     padding-bottom: 2rem;  /* MOBILE MODE */
     align-items: top;
     justify-content: center;
 
     background: var(--bg-mid);
     border: solid;
-    border-color: var(--border-muted);
+    /* border-color: var(--primary); */
     border-radius: 50px;
+
+    position: relative;
 }
+.main-content::before,
+.main-content::after {
+    content: '';
+    position: absolute;
+    inset: -0.2rem;
+    z-index: -1;
+    background: conic-gradient(
+        from var(--gradient-angle),
+        rgba(194, 39, 16, 1) 0%, rgba(196, 144, 12, 1) 35%, rgba(227, 242, 17, 1) 50%, rgba(196, 144, 12, 1) 65%, rgba(194, 39, 16, 1) 100%);
+    animation: rotation 15s linear infinite;
+    border-radius: inherit;
+}
+.main-content::after {
+    /* give it the glow effect */
+    filter: blur(3rem);
+}
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes rotation {
+    0% { --gradient-angle: 0deg; }
+    100% { --gradient-angle: 360deg; }
+}
+
 /* calculator part */
 .calc {
     display: flex;
@@ -144,34 +174,123 @@ h1 {
 .buttons {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
 }
 .buttons button {
     padding: 0.8rem;
     display: flex;
-    gap: 0.5rem;
     align-items: center;
-    width: 110px;
+    justify-content: center;
+    width: 90px;
     
+    color: var(--text-norm);
     border: solid;
     border-radius: 15px;
 }
 .buttons button:hover {
-    box-shadow: 0px 0px 10px var(--primary);
+    cursor: pointer;
 }
-.buttons button i {
-    color: var(--text-norm);
+
+#locate-button {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0px 0px 15px var(--primary);
+
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
 }
+#locate-button::before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 1.5rem;
+    font-weight: bold;
+    content: '\f14e';
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.3s;
+}
+#locate-button:hover::before {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+}
+#locate-button::after {
+    content: "Locate";
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+    transition: all 0.3s;
+}
+#locate-button:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+@keyframes nuh-uh {
+    0% {transform: translate(-1px);}
+    50% {transform: translate(+2px);}
+    100% {transform: translate(-1px);}
+}
+@keyframes click {
+    0% {transform: scale(1);}
+    50% {transform: scale(0.9);}
+    100% {transform: scale(1);}
+}
+
 #clear-button {
     background-color: var(--bg-light);
     border-color: var(--danger);
+    box-shadow: 0px 0px 5px var(--danger);
+
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
 }
-#locate-button {
-    background-color: var(--primary);
-    border-color: var(--border-muted);
+#clear-button::before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 1.5rem;
+    content: '\f2ed';
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.3s;
 }
+#clear-button:hover::before {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+}
+#clear-button::after {
+    content: "Clear";
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+    transition: all 0.3s;
+}
+#clear-button:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
 /* results part */
 .results {
     justify-items: center;
+    width: 290px;
 
     border-left: dashed;
     border-right: dashed;
@@ -193,6 +312,7 @@ h1 {
 }
 .placeholder-text {
     color: var(--bg-light);
+    font-size: 1.2rem;
 }
 .results-shown {
     display: none;
@@ -201,7 +321,10 @@ h1 {
     justify-content: center;
 }
 .results-label {
-    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.2rem;
 }
 .results-lines {
     display: flex;
@@ -213,6 +336,24 @@ h1 {
 .line {
     display: none;
     color: var(--text-dark);
+    animation: color 0.3s;
+}
+.line::after {
+    font-family: 'Font Awesome 6 Free';
+    content: '\f0c5';
+    padding-left: 8px;
+    opacity: 0;
+}
+.line:hover {
+    color: var(--info);
+    cursor: pointer;
+}
+.line:hover::after {
+    opacity: 1;
+}
+.copied,
+.copied:hover {
+    color: var(--success);
 }
 
 
@@ -227,12 +368,12 @@ h1 {
 }
 h2 {
     font-family: nms, sans-serif;
-    font-size:2.2rem;
+    font-size:2.5rem;
     color: var(--primary);
 }
 h4 {
     color: var(--text-norm);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 .info-top,
@@ -331,7 +472,7 @@ footer i {
 
 /* DESKTOP MODE */
 /* duplicates of these earlier in the script are for MOBILE mode */
-@media (min-width: 820px) {
+@media (min-width: 860px) {
     .main-content {
         flex-direction: row;
         padding: 3rem;
@@ -341,6 +482,14 @@ footer i {
         flex-direction: row;
         gap: 2rem;
         padding: 0;
+    }
+    .buttons {
+        justify-content: right;
+        gap: 1.3rem;
+    }
+
+    .results-placeholder {
+        padding-top: 3rem;
     }
 
     .info-bottom {
