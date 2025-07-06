@@ -13,6 +13,7 @@ const long2_box = document.getElementById('long2');
 const dist_box =  document.getElementById('dist');
 const locate =    document.getElementById('locate-button');
 const clear =     document.getElementById('clear-button');
+const results =   document.getElementById('results');
 
 // declare other vars
 const angles = [-90, 0, 90, 180];
@@ -74,6 +75,14 @@ function calculate_laylines(lat1,long1,lat2,long2,dist) {
             }, 1000);
         }
     }
+
+    // if on mobile, scroll down to the results
+    if (window.matchMedia('(max-width: 860px)').matches) {
+        results.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
 }
 
 // locate button func
@@ -110,31 +119,6 @@ function send_inputs() {
 // apply to button
 locate.onclick = () => {send_inputs()}
 
-
-// input validation
-// actual functions here
-function validate_input(box) {
-    let value = box.value;
-    if (isNaN(Number(value)) && value != '-') {
-        // remove the last character
-        box.value = value.slice(0,-1);
-    }
-}
-function validate_paste(box) {
-    let value = box.value;
-    if (isNaN(Number(value)) && value != '-') {
-        // clear the box (ik i'm lazy)
-        box.value = '';
-    }
-}
-// apply the function to each box
-boxes.forEach(box => {
-    box.oninput = () => { validate_input(box); }
-    box.onpaste = () => { setTimeout(() => validate_paste(box),0); }
-    box.onblur  = () => { validate_input(box); }
-})
-
-
 // clear button func
 clear.onclick = () => {
     // change button color
@@ -149,6 +133,14 @@ clear.onclick = () => {
     lat2_box.value  = '';
     long2_box.value = '';
     dist_box.value  = '';
+
+    // scroll to top if on mobile
+    if (window.matchMedia('(max-width: 860px)').matches) {
+        window.scrollTo({
+            behavior: 'smooth',
+            top: 0
+        });
+    }
 }
 
 // go to next input when you press enter

@@ -21,6 +21,9 @@
 
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+
+    <!-- make the address bar red -->
+     <meta name="theme-color" content="#9A0000">
 </head>
 
 
@@ -48,8 +51,8 @@
                         <p>First Coordinates:</p>
                     </div>
                     <div class="inputs">
-                        <input id="lat1" placeholder="lat" title="first latitude">
-                        <input id="long1" placeholder="long" title="first longitude">
+                        <input id="lat1" placeholder="lat" title="first latitude" type="number" inputmode="decimal">
+                        <input id="long1" placeholder="long" title="first longitude" type="number" inputmode="decimal">
                     </div>
                 </section>
                 <section class="coords-2 calc-row">
@@ -57,8 +60,8 @@
                         <p>Second Coordinates:</p>
                     </div>
                     <div class="inputs">
-                        <input id="lat2" placeholder="lat" title="second latitude">
-                        <input id="long2" placeholder="long" title="second longitude">
+                        <input id="lat2" placeholder="lat" title="second latitude" type="number" inputmode="decimal">
+                        <input id="long2" placeholder="long" title="second longitude" type="number" inputmode="decimal">
                     </div>
                 </section>
                 <section class="distance calc-row">
@@ -66,7 +69,7 @@
                         <p>Distance You Travelled:</p>
                     </div>
                     <div class="inputs">
-                        <input id="dist" placeholder="distance (u)" title="distance between both points">
+                        <input id="dist" placeholder="distance (u)" title="distance between both points" type="number" inputmode="decimal">
                     </div>
                 </section>
                 <section class="buttons calc-row">
@@ -75,7 +78,7 @@
                 </section>
             </section>
 
-            <section class="results">
+            <section class="results" id="results">
                 <!-- Resulting leylines will show here -->
                  <section class="results-placeholder">
                     <i class="fa-solid fa-magnifying-glass-location placeholder-icon"></i>
@@ -115,6 +118,7 @@
                             <li> Record your current coordinates in the first set of input fields labeled "lat" and "long." Remember to enter as positive or negative numbers with decimals.</li>
                             <li> Walk or drive <b>at least 1000u</b> from your reference point and record your new position in the second set. </li>
                             <li> Use your visor to find the distance between your current position and the reference point. Record this in the "Distance" field. </li>
+                            <dd> TIP: press Enter to move to the next input field for speedy use :)</dd>
                         </ol>
                         <p>NOTE: Distance shown when you point at your marker switches from <b>units</b> to <b>minutes</b> somewhere between 1100u and 1200u.</p>
                         <p>There is also a <a id="link" target="_blank" href="https://www.youtube.com/watch?v=Ec8QN39GNB8">video guide</a> in case you need more detailed instructions :)</p>
