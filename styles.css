@@ -1,4 +1,4 @@
-@font-face {                  
+@font-face {
     font-family: nms;
     src: url(fonts/geonms-font.ttf);
 }
@@ -11,7 +11,7 @@
     font-family: Futura, sans-serif;
     font-size: 1.1rem;
     color: black;
- 
+
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -49,7 +49,7 @@ p {
 header {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* MOBILE MODE */
     align-items: center;
     justify-content: left;
 
@@ -110,7 +110,7 @@ h1 {
 .main-content::after {
     content: '';
     position: absolute;
-    inset: -0.2rem;
+    inset: -0.1rem;
     z-index: -1;
     background: conic-gradient(
         from var(--gradient-angle),
@@ -120,7 +120,7 @@ h1 {
 }
 .main-content::after {
     /* give it the glow effect */
-    filter: blur(3rem);
+    filter: blur(2rem);
 }
 @property --gradient-angle {
     syntax: "<angle>";
@@ -185,7 +185,7 @@ h1 {
     align-items: center;
     justify-content: center;
     width: 90px;
-    
+
     color: var(--text-norm);
     border: solid;
     border-radius: 15px;
@@ -212,7 +212,7 @@ h1 {
     position: absolute;
     left: 50%;
     top: 50%;
-    
+
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
     transition: all 0.3s;
@@ -227,7 +227,7 @@ h1 {
     position: absolute;
     left: 50%;
     top: 50%;
-    
+
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.5);
     transition: all 0.3s;
@@ -264,7 +264,7 @@ h1 {
     position: absolute;
     left: 50%;
     top: 50%;
-    
+
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
     transition: all 0.3s;
@@ -279,7 +279,7 @@ h1 {
     position: absolute;
     left: 50%;
     top: 50%;
-    
+
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.5);
     transition: all 0.3s;
@@ -451,7 +451,7 @@ h4 {
 
 /* "to top" button */
 .to-top {
-    display: block;
+    display: block; /* MOBILE MODE */
     width: 50px;
     aspect-ratio: 1/1;
     background: var(--primary);
