@@ -8,3 +8,4 @@ This may take a few weeks... or months idk
 <h3>A few things to note:</h3>
 - Firefox users might have to deal with a few bugs since there's some weird `-moz` stuff that I don't really want to deal with.
 - Button animations don't work super well on mobile. I might get it figured out sometime but idk.
+- It kind of looks terrible on Safari lol
