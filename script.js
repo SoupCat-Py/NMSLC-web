@@ -94,27 +94,25 @@ function send_inputs() {
     let long2 = Number(long2_box.value);
     let dist =  Math.abs(Number(dist_box.value)); // use absolute value for distance in case user enters a negative
 
-    // alert when boxes aren't filled out right
+    // check if all boxes are filled out (and not NaN)
     boxes.forEach(box => {
+        // nuh-uh animation if not
         if (box.value === '' || box.value === '-') {
-            alert_yn = true;
+            locate.style.animation = 'none';
+            void locate.offsetWidth; //force reflow (???)
+            locate.style.animation = 'nuh-uh 0.1s';
+            locate.style.animationIterationCount = 3;
         }
+        // spin animation and calculate (with delay) if all good
         else {
             alert_yn = false;
-            calculate_laylines(lat1,long1,lat2,long2,dist);
+            locate.classList.add('spinning');
+            setTimeout(() => {
+                locate.classList.remove('spinning');
+                calculate_laylines(lat1,long1,lat2,long2,dist);
+            }, 500);
         }
     })
-    // animations
-    locate.style.animation = 'none';
-    void locate.offsetWidth; //force reflow (???)
-    if (alert_yn) {
-        locate.style.animation = 'nuh-uh 0.1s';
-        locate.style.animationIterationCount = 3;
-    }
-    else {
-        locate.style.animation = 'click 0.2s';
-        locate.style.animationIterationCount = 1;
-    }
 }
 // apply to button
 locate.onclick = () => {send_inputs()}
