@@ -147,7 +147,7 @@ boxes.forEach((box, idx) => {
         if (e.key === 'Enter') {
             e.preventDefault();
             if (idx < boxes.length - 1) { boxes[idx + 1].focus(); }
-            else { send_inputs() }
+            else { send_inputs(); }
         }
     });
 });

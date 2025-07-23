@@ -154,6 +154,10 @@ h1 {
     border: solid;
     border-color: var(--border);
     border-radius: 10px;
+
+    /* hide spin buttons on firefox */
+    appearance: textfield;
+    -moz-appearance: textfield;
 }
 .inputs input:hover {
     box-shadow: 0px 0px 3px white;
@@ -209,6 +213,7 @@ h1 {
     transform: scale(1);
     transition: all 0.2s;
 }
+.spinning::after,
 #locate-button:hover::before {
     opacity: 0;
     transform: scale(0.3);
@@ -219,10 +224,11 @@ h1 {
     font-weight: bold;
     content: '\f14e';
     
-    position: absolute;
+    opacity: 0;
 
     transition: all 0.2s;
 }
+.spinning::after,
 #locate-button:hover::after {
     opacity: 1;
     transform: scale(1);
@@ -231,7 +237,6 @@ h1 {
 .spinning::after,
 #locate-button::after {
     position: absolute;
-    opacity: 0;
     transform: scale(1.5) rotate(0);
 }
 .spinning::after {
