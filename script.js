@@ -16,9 +16,9 @@ const HED_RESULTS = gebi('results-header');
 // other vars and data
 const boxes = [BOX_LA1, BOX_LO1, BOX_LA2, BOX_LO2, BOX_DIS];
 const info_array = [
-    [gebi('info-head-1'), gebi('info-body-1'), gebi('drop-icon-1')],
-    [gebi('info-head-2'), gebi('info-body-2'), gebi('drop-icon-2')],
-    [gebi('info-head-3'), gebi('info-body-3'), gebi('drop-icon-3')]
+    [gebi('info-head-1'), gebi('info-body-1')],
+    [gebi('info-head-2'), gebi('info-body-2')],
+    [gebi('info-head-3'), gebi('info-body-3')]
 ];
 let full_list = [];
 
@@ -104,17 +104,15 @@ function clear_inputs() {
 }
 
 // show info panels
-info_array.forEach(([head, body, icon]) => {
+info_array.forEach(([head, body]) => {
     head.addEventListener('click', function(){
         if (!head.classList.contains('dropped')) {
             head.classList.add('dropped');
             body.classList.remove('hidden'); body.classList.add('shown');
-            icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-left')
         }
         else {
             head.classList.remove('dropped');
             body.classList.remove('shown'); body.classList.add('hidden')
-            icon.classList.remove('fa-chevron-left'); icon.classList.add('fa-chevron-down')
         }
     });
 });

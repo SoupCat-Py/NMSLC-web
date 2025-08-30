@@ -39,7 +39,7 @@
 h1 { font-family: "nms"; font-size: var(--size1); color: var(--primary);}
 h2 { font-family: "Ubuntu"; font-size: var(--size2); color: var(--text-norm); font-weight: 700;}
 h3 { font-family: "Ubuntu"; font-size: var(--size3); color: var(--text-norm); font-weight: 500;}
-.para { font-family: "Futura"; font-size: var(--size4);}
+.para { font-family: "Ubuntu"; font-size: var(--size4);}
 .textsmall { font-size: var(--size5); }
 .textnorm { color: var(--text-norm); }
 .textdark { color: var(--text-dark); }
@@ -258,6 +258,9 @@ footer div { gap: 36px; padding-left: 36px; padding-right: 36px;}
     .content {
         flex-direction: column;
         align-items: center;
+    }
+    .calc-container {
+        box-shadow: none;
     }
     .info-container {
         width: 80vw;
