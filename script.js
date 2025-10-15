@@ -29,7 +29,7 @@ function calc_lines(lat1, lat2, long1, long2, dist) {
     const angles = [-90, 0, 90, 180];
     
     // magic formula
-    line_distance = (655 * Math.sqrt((lat2-lat1)**2 + (long2-long1)**2)) / dist;
+    line_distance = (655 * Math.hypot((lat2-lat1),(long2-long1))) / dist;
     
     // get the longitudes
     add_list = angles.map(angle => angle + (line_distance/2));
