@@ -217,9 +217,14 @@ h1 {
 .info-head i {
     color: var(--accent);
     font-size: var(--size2);
+    transform: rotate(0);
+    transition: transform 0.15s;
 
     position: absolute;
     right: 24px;
+}
+.info-head.dropped i {
+    transform: rotate(-90deg);
 }
 .info-body {
     border: solid 4px var(--accent);
@@ -263,6 +268,6 @@ footer div { gap: 36px; padding-left: 36px; padding-right: 36px;}
         box-shadow: none;
     }
     .info-container {
-        width: 80vw;
+        width: 90vw;
     }
 }
