@@ -1,4 +1,4 @@
-# NMSLC-web
+# [NMSLC-web](https://nmslc.netlify.app)
 A web-based recreation of my NMS Layline Calculator
 <br />
 
