@@ -240,25 +240,6 @@ h1 {
 
 
 
-
-footer {
-    /* position: fixed; */
-    margin: 0;
-    bottom: 0px;
-    width: 100vw;
-    padding: 16px;
-    align-items: center;
-    justify-content: space-between;
-    
-    background-color: var(--secondary);
-}
-footer div { gap: 36px; padding-left: 36px; padding-right: 36px;}
-.footer-link { color: var(--bg); }
-.footer-link:hover { color: var(--primary); }
-
-
-
-
 @media(max-width: 900px) {
     .content {
         flex-direction: column;
