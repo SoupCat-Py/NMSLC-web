@@ -1,4 +1,4 @@
-# [NMSLC-web](https://nmslc.netlify.app)
+# [NMS Leyline Calculator](https://nmscd.com/leylinecalc)
 A web-based recreation of my NMS Layline Calculator, which I originally made in Python as a windows/mac app
 <br />
 
