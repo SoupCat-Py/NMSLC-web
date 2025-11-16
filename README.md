@@ -1,5 +1,5 @@
 # [NMS Leyline Calculator](https://nmscd.com/leylinecalc)
-A web-based recreation of my NMS Layline Calculator, which I originally made in Python as a windows/mac app
+A web-based recreation of my NMS Leyline Calculator, which I originally made in Python as a windows/mac app
 <br />
 
 > I am very very new to web development (literally started learning yesterday) so bear with me 🙏 <br />
